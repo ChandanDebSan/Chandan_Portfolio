@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chandan - Developer Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%);
+      color: white;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      padding: 1rem 2rem;
+      background: rgba(10, 10, 10, 0.9);
+      backdrop-filter: blur(10px);
+      z-index: 1000;
+    }
+
+    .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .nav-links a {
+      color: #ffffff;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    .nav-links a:hover {
+      color: #915eff;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .logo-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      overflow: hidden;
+    }
+
+    main {
+      padding-top: 90px;
+    }
+
+    .first {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      flex-wrap: wrap;
+      min-height: 80vh;
+      padding: 40px 20px;
+    }
+
+    .left-section,
+    .right-section {
+      flex: 1;
+      min-width: 300px;
+      max-width: 500px;
+      text-align: center;
+    }
+
+    .image-wrapper {
+      position: relative;
+      width: 80%;
+      max-width: 300px;
+      margin: 0 auto;
+    }
+
+    .image-wrapper img {
+      width: 100%;
+      border-radius: 50%;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
+      z-index: 1;
+      position: relative;
+    }
+
+    .shape {
+      position: absolute;
+      opacity: 0.7;
+      animation: float-shape 6s infinite ease-in-out;
+    }
+
+    .circle {
+      width: 40px;
+      height: 40px;
+      background-color: #e879f9;
+      border-radius: 50%;
+      top: -40px;
+      left: -5px;
+    }
+
+    .square {
+      width: 40px;
+      height: 40px;
+      background-color: #915eff;
+      top: 50%;
+      left: -75px;
+    }
+
+    .triangle {
+      width: 0;
+      height: 0;
+      border-left: 12px solid transparent;
+      border-right: 12px solid transparent;
+      border-bottom: 20px solid #ffffff;
+      top: 60%;
+      right: -20px;
+    }
+
+    @keyframes float-shape {
+
+      0%,
+      100% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(-10px);
+      }
+    }
+
+    .right-section h1 {
+      font-size: 3rem;
+      margin-bottom: 10px;
+    }
+
+    #element {
+      font-size: 1.5rem;
+      color: #b0b0ff;
+      font-weight: 400;
+    }
+
+    .scroll-indicator {
+      position: absolute;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .scroll-box {
+      width: 35px;
+      height: 64px;
+      border: 4px solid #915eff;
+      border-radius: 20px;
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      padding: 5px;
+    }
+
+    .scroll-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: #915eff;
+      animation: bounce 2s infinite;
+    }
+
+    @keyframes bounce {
+
+      0%,
+      100% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(20px);
+      }
+    }
+
+    .about-section {
+      padding: 80px 20px;
+      background: url('your-starry-background.jpg') no-repeat center center;
+      background-size: cover;
+      color: #cfcfe0;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .section-subtitle {
+      font-size: 0.9rem;
+      color: #a0a0ff;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 0.5rem;
+    }
+
+    .section-title {
+      font-size: 2.5rem;
+      font-weight: 800;
+      margin-bottom: 1.5rem;
+      color: white;
+    }
+
+    .section-description {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      color: #d1d1e0;
+    }
+
+    .project-section {
+      padding: 60px 20px;
+      background: linear-gradient(to right, #111111, #1c1c2b);
+      color: white;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .project-list {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    .project-item {
+      position: relative;
+      height: 300px;
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    .project-video,
+    .project-image {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+      filter: brightness(0.5);
+      z-index: 1;
+    }
+
+    .project-overlay {
+      position: relative;
+      z-index: 2;
+      padding: 2rem;
+      max-width: 80%;
+    }
+
+    .project-overlay h3 {
+      font-size: 1.8rem;
+      margin-bottom: 0.5rem;
+      color: #fff;
+    }
+
+    .project-overlay p {
+      font-size: 1rem;
+      color: #ddd;
+      line-height: 1.6;
+    }
+
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 1s ease, transform 1s ease;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 768px) {
+      .project-overlay {
+        max-width: 100%;
+        padding: 1.2rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <nav>
+    <div class="nav-container">
+      <div class="logo">
+        <div class="logo-icon"><img src="my_img.jpg" alt="Logo"
+            style="width: 100%; height: 100%; border-radius: 50%;" /></div>
+        <span style="font-size: 1.2rem; font-weight: bold;">Chandan Deb</span>
+      </div>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main>
+    <section class="first fade-in">
+      <div class="left-section">
+        <div class="image-wrapper">
+          <img src="bg.png" alt="Chandan's Avatar" />
+          <div class="shape circle"></div>
+          <div class="shape square"></div>
+          <div class="shape triangle"></div>
+        </div>
+      </div>
+      <div class="right-section">
+        <h1>Hi 👋 I'm Chandan</h1>
+        <div id="element"></div>
+      </div>
+    </section>
+
+    <div class="scroll-indicator">
+      <div class="scroll-box">
+        <div class="scroll-dot"></div>
+      </div>
+    </div>
+
+    <!-- About Section -->
+    <section class="about-section fade-in" id="about">
+      <p class="section-subtitle">INTRODUCTION</p>
+      <h2 class="section-title">Overview.</h2>
+      <p class="section-description" id="about-typing"></p>
+    </section>
+
+    <!-- Projects -->
+    <section class="project-section fade-in" id="projects">
+      <p class="section-subtitle">My Work till date</p>
+      <h2 class="section-title">Projects.</h2>
+      <p class="section-description" id="project-typing"></p>
+      <ul class="project-list">
+        <li class="project-item fade-in">
+          <img src="fauna.jpeg" alt="Fauna Classification Project" class="project-image" />
+          <div class="project-overlay">
+            <h3>Fauna Classification</h3>
+            <p>
+            <ul>
+              <li>Developed a deep learning model for image classification of 127 animal and bird species</li>
+              <li> Utilized custom CNN and pretrained models such as ResNet50, EfficientNet V2-B1, ViT, and OpenCLIP.
+              </li>
+              <li>Evaluated performance using metrics like test accuracy, F1-score, and ROC-AUC to ensure robustness and
+                generalization and achieved 95% classification accuracy on unseen data using the ViT Transformer model
+              </li>
+            </ul>
+            </p>
+          </div>
+        </li>
+        <li class="project-item fade-in">
+          <video autoplay loop muted playsinline class="project-video">
+            <source src="fruit.mp4" type="video/mp4" />
+          </video>
+          <div class="project-overlay">
+            <h3>Fruit Ninja Clone</h3>
+            <p>
+            <ul>
+              <li>A clone of the popular Fruit Ninja game using Unity Engine, where players slice fruits while avoiding
+                bombs.</li>
+              <li>Learned and applied game design, implementation, and C# programming</li>
+              <li>Includes multiple levels with increasing difficulty and a scoring system based on accuracy and speed.
+              </li>
+              <li> Researched and utilized various online resources and tutorials to troubleshoot challenges and improve
+                game mechanics</li>
+            </ul>
+            </p>
+          </div>
+        </li>
+        <li class="project-item fade-in">
+          <video autoplay loop muted playsinline class="project-video">
+            <source src="video.mp4" type="video/mp4" />
+          </video>
+          <div class="project-overlay">
+            <h3>Pixel Adventure</h3>
+            <p>
+            <ul>
+              <li> Developed a 2D platformer game heavily inspired by Mario, Celeste, and similar titles.
+              </li>
+              <li>Learned and applied game design principles, including character movement, animations, and level
+                design.</li>
+              <li> Designed two original game levels, adding new gameplay elements, animations, and scripts
+                independently.</li>
+              <li>Combined various resources and tutorials to enhance game mechanics and refine the overall player
+                experience.</li>
+            </ul>
+            </p>
+          </div>
+
+      </ul>
+    </section>
+
+    <!--Other Projects -->
+    <section class="project-section fade-in" id="projects">
+      <p class="section-subtitle">Extracurricular Projects</p>
+      <h2 class="section-title">Other Projects.</h2>
+      <p class="section-description" id="other-project-typing"></p>
+      <ul class="project-list">
+        <li class="project-item fade-in">
+          <video autoplay loop muted playsinline class="project-video">
+            <source src="maze.mp4" type="video/mp4" />
+          </video>
+          <div class="project-overlay">
+            <h3>Maze Shooter</h3>
+            <p>A very simple top down maze shooter game where players navigate a maze, avoiding and killing enemies.
+              Built using basic HTML, CSS and JavaScript.
+              Utilizing DSA concepts such as Depth first search , random enemy spawns and A* path finding algorithm.
+            </p>
+          </div>
+        </li>
+        <li class="project-item fade-in">
+          <video autoplay loop muted playsinline class="project-video">
+            <source src="tps.mp4" type="video/mp4" />
+          </video>
+          <div class="project-overlay">
+            <h3>Third Person Shooter</h3>
+            <p>A 3D third-person shooter game where players control a character in a detailed environment, using various
+              weapons to defeat enemies. Built with Unity and C#.
+              Here Players have to complete vaious objectives and kill zombies to complete the game. The game is still
+              under development.
+            </p>
+          </div>
+        </li>
+        <li class="project-item fade-in">
+          <video autoplay loop muted playsinline class="project-video">
+            <source src="fps.mp4" type="video/mp4" />
+          </video>
+          <div class="project-overlay">
+            <h3>First Person Shooter</h3>
+            <p>A fast-paced FPS game inspired from COD and BGMI where players battle against AI opponents in various
+              environments. Built with CryEngine 5
+              and the scripts and assets that are already readily available. This Game is on Hiatus</p>
+          </div>
+        </li>
+
+        <li class="project-item fade-in">
+          <video autoplay loop muted playsinline class="project-video">
+            <source src="hero.mp4" type="video/mp4" />
+          </video>
+          <div class="project-overlay">
+            <h3>Project Hero Honda</h3>
+            <p>A passion project focused on restoring a 2003 Hero Honda Splendor. This project combines my love for
+              mechanics and curiosity, allowing me to explore various aspects and working of a mechanical engine.
+              Originally marked for scrap, I decided to take it on as a personal challenge. The project involves
+              disassembling, cleaning, and reassembling the engine, with the goal of bringing it back to life.
+              This project is a testament to my curiosity and hands-on approach to learning, as I delve into the
+              intricacies of automotive mechanics.
+            </p>
+          </div>
+        </li>
+      </ul>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="project-section fade-in" id="contact">
+      <p class="section-subtitle">Get in Touch</p>
+      <h2 class="section-title">Contact Me</h2>
+      <p class="section-description">Feel free to reach out through any of the platforms below.</p>
+      <ul style="list-style: none; display: flex; flex-direction: column; gap: 1.5rem; padding: 0; font-size: 1.1rem; margin-top: 2rem;">
+        <li style="display: flex; align-items: center; gap: 1rem;">
+          <i class="fas fa-envelope" style="color: #915eff;"></i>
+          <a href="mailto:chandan457deb@yahoo.com"
+            style="color: #d1d1e0; text-decoration: none;">chandan457deb@yahoo.com</a>
+        </li>
+        <li style="display: flex; align-items: center; gap: 1rem;">
+          <i class="fab fa-linkedin" style="color: #0077b5;"></i>
+          <a href="https://www.linkedin.com/in/chandan-deb-a24a8126a" target="_blank"
+            style="color: #d1d1e0; text-decoration: none;">linkedin.com/in/chandan-deb</a>
+        </li>
+      </ul>
+    </section>
+
+  </main>
+
+  <!-- Typed.js -->
+  <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+  <script>
+    new Typed('#element', {
+      strings: ['A Passionate Game Developer.', 'An AI/ML Enthusiast.', 'A Web Developer.', 'A Software Engineer.'],
+      typeSpeed: 50,
+      backSpeed: 30,
+      loop: true
+    });
+
+    new Typed('#about-typing', {
+      strings: [
+        "Computer Science undergraduate passionate about game development, robotics, and software engineering, with hands-on experience in Unity, C++, and Python. Quick learner with a problem-solving mindset, eager to contribute to real-world projects and collaborative development environments.",
+      ],
+      typeSpeed: 25,
+      startDelay: 300,
+      showCursor: true,
+      cursorChar: '|',
+    });
+
+    new Typed('#project-typing', {
+      strings: [
+        "Projects that showcase my skills and creativity in releation to game development, AI/ML, and web development. Each project reflects my dedication to pushing boundaries and creating engaging experiences."
+      ],
+      typeSpeed: 25,
+      startDelay: 300,
+      showCursor: true,
+      cursorChar: '|',
+    });
+
+    new Typed('#other-project-typing', {
+      strings: [
+        "The Projects that I have worked on outside of my main focus areas, demonstrating my versatility and willingness to explore new challenges. These projects highlight my ability to adapt and learn in various domains."
+      ],
+      typeSpeed: 25,
+      startDelay: 300,
+      showCursor: true,
+      cursorChar: '|',
+    });
+  </script>
+
+  <!-- Fade-in on scroll -->
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+  </script>
+</body>
+
+</html>
